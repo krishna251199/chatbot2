@@ -92,7 +92,7 @@ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy
 
 #fitting and saving the model 
 hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
-model.save('model.h5', hist)
+
 
 print("model created")
 
@@ -104,7 +104,7 @@ import pickle
 import numpy as np
 
 from keras.models import load_model
-model = load_model('model.h5')
+model = model
 import json
 import random
 intents = json.loads(open('data.json').read())
