@@ -156,10 +156,7 @@ def getResponse(ints, intents_json):
             break
     return result
 
-def chatbot_response(msg):
-    ints = predict_class(msg, model)
-    res = getResponse(ints, intents)
-    return res
+
 
 
 from flask import Flask, render_template, request
@@ -171,10 +168,17 @@ app.static_folder = 'static'
 def home():
     return render_template("index.html")
 
-@app.route('/get', methods=['POST'])
+def chatbot_response(msg):
+    ints = predict_class(msg, model)
+    res = getResponse(ints, intents)
+    return res
+
+
+@app.route("/get")
 def get_bot_response():
     userText = request.args.get('msg')
     return chatbot_response(userText)
 
+
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=6318)
+    app.run()
