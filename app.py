@@ -168,13 +168,15 @@ app.static_folder = 'static'
 def home():
     return render_template("index.html")
 
+
+
+
+@app.route('/get', methods=['POST'])
 def chatbot_response(msg):
     ints = predict_class(msg, model)
     res = getResponse(ints, intents)
     return res
 
-
-@app.route("/get")
 def get_bot_response():
     userText = request.args.get('msg')
     return chatbot_response(userText)
