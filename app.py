@@ -23,9 +23,10 @@ def index():
 
 @app.route("/get", methods=["GET","POST"])
 def chatbot_response():
-    msg = request.form["msg"]
-    response = chatbot.get_response(msg)
-    return str(response)
+    if request.method == "POST":
+        msg = request.form["msg"]
+        response = chatbot.get_response(msg)
+        return str(response)
 
 if __name__ == "__main__":
     app.run()
