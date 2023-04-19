@@ -18,9 +18,9 @@ trainer.train("chatterbot.corpus.english.greetings",
 def index():
     return render_template("index.html")
 
-@app.route("/get", methods=["POST"])
+@app.route("/app/get", methods=["POST"])
 def chatbot_response():
-    msg = request.form["msg"]
+    msg = request.get_json()["message"]
     response = chatbot.get_response(msg)
     return str(response)
 
