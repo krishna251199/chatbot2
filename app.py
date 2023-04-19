@@ -1,32 +1,17 @@
 from flask import Flask, render_template, request
-from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
 
-#Flask initialization
 app = Flask(__name__)
-
-chatbot=ChatBot('Pythonscholar')
-
-# Create a new trainer for the chatbot
-trainer = ChatterBotCorpusTrainer(chatbot)
-
-# Now let us train our bot with multiple corpus
-trainer.train("chatterbot.corpus.english.greetings",
-              "chatterbot.corpus.english.conversations" )
 
 @app.route("/")
 def index():
-	
-	return render_template("index.html")
+    return render_template("index.html")
 
-
-
-@app.route("/get", methods=["GET","POST"])
-def chatbot_response():
-    if request.method == "POST":
-        msg = request.form["msg"]
-        response = chatbot.get_response(msg)
-        return str(response)
+@app.route("/get")
+def get_bot_response():
+    user_text = request.args.get("msg")
+    # Your logic for the chatbot response goes here
+    bot_text = "I'm just a simple Flask chatbot."
+    return str(bot_text)
 
 if __name__ == "__main__":
     app.run()
