@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Flask Chatbot Example</title>
-  </head>
-  <body>
-    <h1>Welcome to the Flask Chatbot Example</h1>
-    <div id="chatbox"></div>
-    <div id="inputbox">
-      <input type="text" id="usermsg" name="usermsg" placeholder="Type your message here">
-      <button type="button" onclick="sendMsg()">Send</button>
-    </div>
-    <script>
-      function sendMsg() {
-        var usermsg = document.getElementById("usermsg").value;
-        document.getElementById("usermsg").value = "";
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "/get?msg=" + usermsg, true);
-        xhr.onreadystatechange = function() {
-          if (true) {
-            var botmsg = xhr.responseText;
-            var chatbox = document.getElementById("chatbox");
-            var msg = document.createElement("p");
-            msg.innerHTML = "<strong>You:</strong> " + usermsg;
-            chatbox.appendChild(msg);
-            var msg = document.createElement("p");
-            msg.innerHTML = "<strong>Bot:</strong> " + botmsg;
-            chatbox.appendChild(msg);
-          }
-        };
-        xhr.send();
-      }
-    </script>
-  </body>
+<head>
+	<title>Chatbot</title>
+</head>
+<body>
+	<h1>Chatbot</h1>
+	<div id="chatbox"></div>
+	<form action="" onsubmit="return false;">
+		<input type="text" id="usermsg" autocomplete="off">
+		<button type="submit" onclick="send_msg()">Send</button>
+	</form>
+</body>
+<script>
+	function send_msg() {
+		var usermsg = document.getElementById("usermsg").value;
+		document.getElementById("usermsg").value = "";
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var botmsg = this.responseText;
+				var chatbox = document.getElementById("chatbox");
+				var userdiv = document.createElement("div");
+				userdiv.className = "usermsg";
+				userdiv.innerHTML = "<b>You:</b> " + usermsg;
+				var botdiv = document.createElement("div");
+				botdiv.className = "botmsg";
+				botdiv.innerHTML = "<b>Chatbot:</b> " + botmsg;
+				chatbox.appendChild(userdiv);
+				chatbox.appendChild(botdiv);
+			}
+		};
+		xhttp.open("GET", "/get?msg="+usermsg, true);
+		xhttp.send();
+	}
+</script>
 </html>
