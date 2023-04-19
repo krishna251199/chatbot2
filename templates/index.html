@@ -210,7 +210,7 @@ button, input, optgroup, select, textarea {
                     msg: rawText,
                 },
                 type: "POST",
-                url: "/get",
+                url: "/app/get",
             }).done(function(data) {
                 var botHtml = '<p class="botText"><span>' + data + "</span></p>";
                 $("#chatbox").append($.parseHTML(botHtml));
