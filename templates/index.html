@@ -209,8 +209,8 @@ button, input, optgroup, select, textarea {
                 data: {
                     msg: rawText,
                 },
-                type: "GET",
-                url: "/app/get",
+                type: "POST",
+                url: "/get",
             }).done(function(data) {
                 var botHtml = '<p class="botText"><span>' + data + "</span></p>";
                 $("#chatbox").append($.parseHTML(botHtml));
