@@ -22,7 +22,8 @@ def index():
 def chatbot_response():
     msg = request.get_json()["message"]
     response = chatbot.get_response(msg)
-    return str(response)
+    return "hello"
+#     return str(response)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)
