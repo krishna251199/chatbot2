@@ -18,11 +18,18 @@ trainer.train("chatterbot.corpus.english.greetings",
 def index():
     return render_template("index.html")
 
-@app.route("/app/get", methods=["GET","POST"])
-def chatbot_response():
+
+@app.route('/app/get', methods=['POST'])
+def get():
+    # Your code to handle the request goes here
     msg = request.form["msg"]
     response = chatbot.get_response(msg)
     return str(response)
+    
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+
+
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=7303)
