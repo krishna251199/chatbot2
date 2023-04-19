@@ -209,7 +209,7 @@ button, input, optgroup, select, textarea {
                 data: {
                     msg: rawText,
                 },
-                type: "POST",
+                type: "GET",
                 url: "/app/get",
             }).done(function(data) {
                 var botHtml = '<p class="botText"><span>' + data + "</span></p>";
