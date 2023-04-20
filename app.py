@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return render_template("index.html")
-
+@app.route("/app/get")
 @app.route("/get")
 def get_bot_response():
     user_text = request.args.get("msg")
