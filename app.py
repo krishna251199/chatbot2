@@ -101,5 +101,5 @@ def chatbot_response(msg):
     return res
 
 
-if __name__ == "__main__":
-    app.run()
+if _name_ == "_main_":
+    app.run(port=int(os.getenv("PORT")))
