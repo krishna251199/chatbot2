@@ -23,7 +23,11 @@
                 "Hello",
                 "Good day",
                 "Namaste",
-                "yo"
+                "yo",
+                "hii",
+                "hiiiiii",
+                "hiii",
+                "hiiii"
             ],
             "responses": [
                 "Hello",
@@ -42,7 +46,8 @@
                 "Goodbye",
                 "Get lost",
                 "Till next time",
-                "bbye"
+                "bbye",
+                "tata"
             ],
             "responses": [
                 "See you!",
@@ -144,7 +149,7 @@
                 "tell me the date","day","what day is is today"
             ],
             "responses": [
-                "Date and Time"
+                "22-april-2023"
             ]
         },
         {
